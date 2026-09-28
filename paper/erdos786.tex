@@ -106,7 +106,7 @@ N H(S)\le\tfrac N2H_N+\tfrac12\Big(\sum_{s\in S}r_s-\sum_{d\notin S}r_d\Big)\le\
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:log}]
-Let $h=\floor{\log_2N}$ and call $p$ \emph{bad} if $R_p<4h$; let $P$ be the set of bad primes. Every $a\in A$ has a bad prime factor, by the consequence of Lemma~\ref{lem:lift} noted above (for $a=p_1\cdots p_k$ with no bad factor, $k\le h$ and fresh pairs exist). Let $E=\{px:p\in P,\ x,px\in A\}$ and $S=A\setminus E$. Then $S$ satisfies the hypotheses of Lemma~\ref{lem:packing}, so $H(S)\le\frac12H_N+\frac12$, while
+Let $h=\floor{\log_2N}$ and call a prime $p\le N$ \emph{bad} if $R_p<4h$; let $P$ be the (finite) set of bad primes. Every $a\in A$ has a bad prime factor, by the consequence of Lemma~\ref{lem:lift} noted above (for $a=p_1\cdots p_k$ with no bad factor, $k\le h$ and fresh pairs exist). Let $E=\{px:p\in P,\ x,px\in A\}$ and $S=A\setminus E$. Then $S$ satisfies the hypotheses of Lemma~\ref{lem:packing}, so $H(S)\le\frac12H_N+\frac12$, while
 \[
 H(E)\le\sum_{p\in P}\frac1p\sum_{x:\,x,px\in A}\frac1x\le H_{4h-1}\sum_{p\le N}\frac1p .
 \]
