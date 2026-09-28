@@ -1,0 +1,16 @@
+name = "Erdos786"
+version = "0.1.0"
+defaultTargets = ["Erdos786"]
+
+[leanOptions]
+pp.unicode.fun = true
+autoImplicit = false
+
+# Same dependency pin as erdos-971-lean (brings Mathlib and PrimeNumberTheoremAnd with explicit Mertens bounds).
+[[require]]
+name = "BombieriVinogradov"
+git = "https://github.com/kimihiro64/bombieri-vinogradov.git"
+rev = "7a1748306e026825ed6a5555516cc2f28989b2ac"
+
+[[lean_lib]]
+name = "Erdos786"
