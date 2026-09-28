@@ -33,7 +33,7 @@
 \begin{document}
 
 \begin{abstract}
-Call a set $A$ of positive integers \emph{admissible} if, whenever $a_1\cdots a_r=b_1\cdots b_s$ with $a_1,\dots,a_r$ distinct elements of $A$ and $b_1,\dots,b_s$ distinct elements of $A$, necessarily $r=s$. Erd\H{o}s asked whether admissible sets can have density $1-\varepsilon$ for every $\varepsilon>0$, and whether $\{1,\dots,N\}$ always contains an admissible subset of size $(1-o(1))N$. For the variant in which repetitions are allowed both questions were answered negatively by Erd\H{o}s, Ruzsa and S\'ark\"ozy and by Granville and Soundararajan; for products of distinct elements they have remained open. We show that every admissible $A\subseteq\{1,\dots,N\}$ satisfies $\sum_{a\in A}1/a\le\frac12\log N+(\log\log N+2)^2$, and that there is an absolute constant $\eta>0$ such that every admissible $A\subseteq\{1,\dots,N\}$ has $\abs{A}<(1-\eta)N$ for all large $N$. Both questions therefore have negative answers. The proofs are elementary; the second rests on a coupling that replaces the largest divisor of an integer composed of small primes, which avoids the divisor-function losses inherent in counting quotients along a multiplication table. Both negative answers are formally verified in Lean~4 against the statements of the Formal Conjectures project.
+Call a set $A$ of positive integers \emph{admissible} if, whenever $a_1\cdots a_r=b_1\cdots b_s$ with $a_1,\dots,a_r$ distinct elements of $A$ and $b_1,\dots,b_s$ distinct elements of $A$, necessarily $r=s$. Erd\H{o}s asked whether admissible sets can have density $1-\varepsilon$ for every $\varepsilon>0$, and whether $\{1,\dots,N\}$ always contains an admissible subset of size $(1-o(1))N$. For the variant in which repetitions are allowed both questions were answered negatively by Erd\H{o}s, Ruzsa and S\'ark\"ozy and by Granville and Soundararajan; for products of distinct elements, question (i) was answered only recently (with density bound $7/8$) and question (ii) has remained open. We show that every admissible $A\subseteq\{1,\dots,N\}$ satisfies $\sum_{a\in A}1/a\le\frac12\log N+(\log\log N+2)^2$, and that there is an absolute constant $\eta>0$ such that every admissible $A\subseteq\{1,\dots,N\}$ has $\abs{A}<(1-\eta)N$ for all large $N$. Both questions therefore have negative answers. The proofs are elementary; the second rests on a coupling that replaces the largest divisor of an integer composed of small primes, which avoids the divisor-function losses inherent in counting quotients along a multiplication table. Both negative answers are formally verified in Lean~4 against the statements of the Formal Conjectures project.
 \end{abstract}
 
 \maketitle
@@ -51,9 +51,9 @@ Erd\H{o}s~\cite{Er65,Er80} asked the following (Problem \#786 of~\cite{EP}).
 \item Is there, for every $\varepsilon>0$, an admissible set of density greater than $1-\varepsilon$?
 \item Is there always an admissible $A\subseteq\{1,\dots,N\}$ with $\abs{A}\ge(1-o(1))N$?
 \end{enumerate}
-Selfridge observed that the integers divisible by exactly one of a suitable block of consecutive large primes (with reciprocal sum just below $1$) form an admissible set of density $1/e-\varepsilon$, and Tao observed (see~\cite{EP}) that the integers $n\le N$ with exactly one prime factor, counted with multiplicity, exceeding $N^{1/(1+\sqrt e)}$ form an admissible set of size $(1-c+o(1))N$ with $c=0.1715\ldots$.
+Selfridge observed that the integers having exactly one prime factor, counted with multiplicity, from a suitable block of consecutive large primes (with reciprocal sum just below $1$) form an admissible set of density $1/e-\varepsilon$, and Tao observed (see~\cite{EP}) that the integers $n\le N$ with exactly one prime factor, counted with multiplicity, exceeding $N^{1/(1+\sqrt e)}$ form an admissible set of size $(1-c+o(1))N$ with $c=0.1715\ldots$.
 
-If one allows repetitions (so that (P) is required for multisets), then a finite set is admissible precisely when there is a completely additive $F:\N\to\Q$ with $F\equiv1$ on $A$ (by linear duality), and both questions are settled: Erd\H{o}s, Ruzsa and S\'ark\"ozy~\cite{ERS73} obtained the density bound $1/2$, and Tao noted that a theorem of Granville and Soundararajan~\cite{GS01} gives $\abs{A}\le(1-c+o(1))N$ with the constant $c$ above, which is sharp. The formulation in~\cite{Er80}, however, explicitly concerns distinct elements, and it records that Ruzsa had proved negative answers to both questions in that setting, with an upper density bound $<1/e$; this proof was never published, and it has been suggested that the two versions were conflated~\cite{EP}. The problem is therefore listed as open. Recently Gessel~\cite{Gessel} gave a formally verified proof that an admissible set with natural density $\delta$ has $\delta\le7/8$, answering (i); question (ii) remained open. The repetition-free condition is weaker, and there is no additive certificate: for instance $\{2,3,4\}$ is admissible but $2\cdot2=4$.
+If one allows repetitions (so that (P) is required for multisets), then a finite set is admissible precisely when there is a completely additive $F:\N\to\Q$ with $F\equiv1$ on $A$ (by linear duality), and both questions are settled: Erd\H{o}s, Ruzsa and S\'ark\"ozy~\cite{ERS73} obtained the density bound $1/2$, and Tao noted that a theorem of Granville and Soundararajan~\cite{GS01} gives $\abs{A}\le(1-c+o(1))N$ with the constant $c$ above, which is sharp. The formulation in~\cite[p.~114]{Er80}, however, explicitly concerns distinct elements; there Erd\H{o}s states that Ruzsa had shown that both answers are negative, and that an infinite admissible set has upper density $<1/e$. No proof has appeared, and the problem page~\cite{EP} remarks that Erd\H{o}s may have had the repetition-allowed results in mind; the distinct version is listed there as open. Recently Gessel~\cite{Gessel} posted a proof, accompanied by a Lean formalization, that an admissible set with natural density $\delta$ has $\delta\le7/8$, which answers (i); question (ii) remained open. The repetition-free condition is weaker, and there is no additive certificate: for instance $\{2,3,4\}$ is admissible but $2\cdot2=4$.
 
 \begin{theorem}\label{thm:log}
 For every $N\ge286$ and every admissible $A\subseteq\{1,\dots,N\}$,
@@ -67,10 +67,10 @@ Consequently an admissible set has upper logarithmic density at most $1/2$, and 
 There is an absolute constant $\eta>0$ such that for all sufficiently large $N$, every admissible $A\subseteq\{1,\dots,N\}$ satisfies $\abs{A}<(1-\eta)N$. One may take $\eta=e^{-5000}$ for $N\ge e^{200000}$.
 \end{theorem}
 
-Theorem~\ref{thm:main} answers (ii) negatively, and also (i): an admissible set of density $>1-\eta/2$ would contain admissible sets $A\cap[1,N]$ of size $\ge(1-\eta)N$. Theorem~\ref{thm:log} gives the stronger bound $1/2$ for (i), matching the repetition-allowed bound of~\cite{ERS73}. We make no attempt to optimize $\eta$; it seems natural to conjecture, following Tao, that the optimal constant is $1-0.1715\ldots$ in the distinct setting as well. In the range $34\le N\le60$ we computed the maximum size of an admissible subset of $\{1,\dots,N\}$ exactly (two independent programs; see Section~\ref{sec:data}); it coincides with the maximum for the repetition-allowed version, and for $39\le N\le 60$ an extremal set is $\{n\le N: n$ has exactly one prime factor $\ge5$, with multiplicity$\}$.
+Theorem~\ref{thm:main} answers (ii) negatively, and also (i): an admissible set of density $>1-\eta/2$ would contain admissible sets $A\cap[1,N]$ of size $\ge(1-\eta)N$. Theorem~\ref{thm:log} gives the stronger bound $1/2$ for (i), matching the repetition-allowed bound of~\cite{ERS73}. We make no attempt to optimize $\eta$; it seems natural to conjecture, following Tao, that the optimal deficit is $0.1715\ldots$, i.e.\ that the largest admissible subsets of $\{1,\dots,N\}$ have size $(1-0.1715\ldots+o(1))N$, in the distinct setting as well. Some mild numerical evidence points the same way: an exact computation for $N\le60$ (two independent programs, available with~\cite{repo}) shows that for $34\le N\le60$ the largest admissible subset of $\{1,\dots,N\}$ has the same size as in the repetition-allowed version, and for $39\le N\le 60$ an extremal set is $\{n\le N: n$ has exactly one prime factor $\ge5$, counted with multiplicity$\}$, a level set of a completely additive function.
 
 \subsection*{Formal verification}
-The negative answers to both questions, in the exact form stated in the Formal Conjectures project~\cite{FC} (\texttt{erdos\_786.parts.i} and \texttt{erdos\_786.parts.ii}, with the answer resolved to \texttt{False}), are proved in Lean~4 with Mathlib; the only analytic input beyond Mathlib is the explicit form of Mertens' second theorem from the PrimeNumberTheoremAnd project~\cite{PNT}. The formal proof follows Section~\ref{sec:main} with unspecified constants. See Section~\ref{sec:lean}.
+The negative answers to both questions, in the exact form stated in the Formal Conjectures project~\cite{FC} (\texttt{erdos\_786.parts.i} and \texttt{erdos\_786.parts.ii}, with the answer resolved to \texttt{False}), are proved in Lean~4 with Mathlib; the only analytic input beyond Mathlib is the explicit form of Mertens' theorems, taken (vendored) from the PrimeNumberTheoremAnd project~\cite{PNT}. The formal proof follows Section~\ref{sec:main} with unspecified constants. See Section~\ref{sec:lean}.
 
 \subsection*{Notation}
 $H(S)=\sum_{s\in S}1/s$, $H_j=\sum_{n\le j}1/n$; $v_p(n)$ is the exponent of $p$ in $n$; $\tau(n)$ the number of divisors; $p,q$ denote primes. For a positive rational $q\ne1$, a \emph{$q$-pair} in $A$ is a pair $(x,qx)$ with $x,qx\in A$, and a \emph{$q$-matching} is a family of $q$-pairs whose endpoints are pairwise distinct.
@@ -78,7 +78,7 @@ $H(S)=\sum_{s\in S}1/s$, $H_j=\sum_{n\le j}1/n$; $v_p(n)$ is the exponent of $p$
 \section{Two combinatorial lemmas}
 
 \begin{lemma}[Lifting]\label{lem:lift}
-Let $a\in A$ and $a=q_1\cdots q_t$ with positive rationals $q_j$ (repetitions allowed). If for each $j$ the $q_j$-pairs in $A$ contain a matching of size at least $2t$, then $A$ is not admissible.
+Let $a\in A$ and $a=q_1\cdots q_t$ with positive rationals $q_j\ne1$ (repetitions allowed). If for each $j$ the $q_j$-pairs in $A$ contain a matching of size at least $2t$, then $A$ is not admissible.
 \end{lemma}
 \begin{proof}
 Choose $(x_j,y_j)$, $y_j=q_jx_j$, for $j=1,\dots,t$ in turn from the matching of $q_j$, avoiding $a$ and all endpoints chosen earlier. At step $j$ there are $2j-1$ forbidden integers, each lying in at most one pair of a matching, so a pair is available. Then $a,x_1,y_1,\dots,x_t,y_t$ are distinct elements of $A$ and $a\prod x_j=\prod y_j$, with $t+1\ne t$ factors. (If $t=0$ then $a=1$, which is excluded by (P).)
@@ -120,7 +120,7 @@ Harmonic mass is insensitive to $[N/K,N]$ (the interval $[N/\log N,N]$ has $(1-o
 \section{Proof of Theorem~\ref{thm:main}}\label{sec:main}
 
 \subsection{Why a new idea is needed}
-A natural approach to (ii) is to connect a large prime $p$ to $1$ through ratios $v/u$ close to $1$ between integers $u,v\le\sqrt N$, and to charge each missing ratio edge to the missing integers $mt$ or $nt$ occurring in the ``trials'' $(mt,nt)$, $m\in[K,2K)$. This works but loses a factor $\tau$: carried out in dyadic bands, it gives the bound $N-\abs A>N/(2^{16}(1+\log N)^3)$ and no better. The loss is intrinsic. By Ford's theorem~\cite{Ford08} the set of $n\le N$ having a divisor in $[K,2K)$ has size $\asymp N(\log K)^{-\delta}(\log\log K)^{-3/2}=o(N)$, yet deleting it kills every trial $(mt,nt)$ with $m\in[K,2K)$. The proof below avoids this by pairing $pz$ with a partner obtained from $z$ through a \emph{canonical} factorization, so that every integer is hit with essentially uniform probability.
+A natural approach to (ii) is to connect a large prime $p$ to $1$ through ratios $v/u$ close to $1$ between integers $u,v\le\sqrt N$, and to charge each missing ratio edge to the missing integers $mt$ or $nt$ occurring in the ``trials'' $(mt,nt)$, $m\in(K,2K]$. Carried out in dyadic bands, this charges each failed trial to a divisor of a missing integer, so missing integers are weighted by their number of divisors; one obtains only a deficit bound with a polylogarithmic loss, $N-\abs A\gg N/(\log N)^{C}$. The loss is intrinsic to this kind of charging. By Ford's theorem~\cite[Thm.~1]{Ford08}, uniformly for $3\le K\le\sqrt N$ the number of $n\le N$ having a divisor in $(K,2K]$ is $\asymp N(\log K)^{-\delta_{\rm F}}(\log\log K)^{-3/2}$ with $\delta_{\rm F}=1-\frac{1+\log\log2}{\log2}$, which is $o(N)$ as $K\to\infty$; yet deleting these integers kills every trial $(mt,nt)$ with $m\in(K,2K]$. The proof below avoids this by pairing $pz$ with a partner obtained from $z$ through a \emph{canonical} factorization, so that every integer is hit with essentially uniform probability.
 
 \subsection{Set-up}
 Fix $N\ge N_1=\ceil{e^{200000}}$ and $A\subseteq\{1,\dots,N\}$; let $E=\{1,\dots,N\}\setminus A$, $D=\abs E$, $\delta=D/N$, and suppose $\delta\le\eta=e^{-5000}$. Put
@@ -171,7 +171,7 @@ Let $T=\floor{N/p}$ and let $z$ be uniform in $[1,T]$; write $z=ku$ with $k=k_Q(
 \PP(mu=b)\le\frac1{T\gamma p}\sum_{m/p\le k\le2m/p}\frac1k\le\frac{2}{T\gamma p}\le\frac4{\gamma N},
 \]
 and $\PP(mu\in E)\le4\delta/\gamma\le8e^{-3600}<\frac18$.
-So with probability $>\frac12$ both $mu$ and $pz$ lie in $A$. There are at most $y^{40}$ values of $k$, so for some $(k,m)$ at least $T/(2y^{40})\ge N/(4p^{7/2})\ge N^{57/64}/4$ values of $u$ succeed; these give distinct $(pk/m)$-pairs, and Lemma~\ref{lem:paths} shows that $pk/m$ is rich.
+So with probability $>\frac12$ both $mu$ and $pz$ lie in $A$. For $Q$-smooth $k\le y^{40}$ and $m\in\cM_k$ let $s_{k,m}$ be the number of $u$ with $ku\le T$, $k_Q(ku)=k$, $mu\in A$ and $pku\in A$. The success probability equals $\frac1T\sum_k\frac1{\abs{\cM_k}}\sum_{m\in\cM_k}s_{k,m}\le\frac1T\sum_k\max_{m}s_{k,m}$, so $\sum_k\max_ms_{k,m}>T/2$; as there are at most $y^{40}$ values of $k$, some $(k,m)$ has $s_{k,m}\ge T/(2y^{40})\ge N/(4p^{7/2})\ge N^{57/64}/4$; the corresponding $(mu,pku)$ are distinct $(pk/m)$-pairs, and Lemma~\ref{lem:paths} shows that $pk/m$ is rich.
 \end{proof}
 
 The uniqueness of the decomposition $z=k_Q(z)\cdot u$ is what removes the divisor-function weight: with an arbitrary divisor in place of $k_Q(z)$, a given $b$ would be reached through each of its divisors.
@@ -185,28 +185,16 @@ Induct on $p$. For $p\le p_0$ use Step 4. Otherwise take $k,m$ from Lemma~\ref{l
 \end{proof}
 
 \subsection{Step 7: conclusion}
-Apply Lemma~\ref{lem:smooth} with $y=P$, $X=N$: at least $c_0N$ integers in $[N/2,N]$ are $P$-smooth; at most $NS$ are divisible by a heavy prime and at most $D$ lie in $E$, so some $a\in A\cap[N/2,N]$ has all its prime factors non-heavy and $\le P$. By Lemma~\ref{lem:words}, $a=q_1\cdots q_t$ with rich $q_j^{\pm1}$ and $t\le16(\log P)\log a\le\frac12(\log N)^2$, so $M\ge2t$, and Lemma~\ref{lem:lift} shows that $A$ is not admissible. This proves Theorem~\ref{thm:main}. \qed
-
-\section{Small cases}\label{sec:data}
-Let $f(N)$ be the maximum size of an admissible subset of $\{1,\dots,N\}$ and $D(N)=N-f(N)$, and let $D_{\rm rep}(N)$ be the analogue for the repetition-allowed version. We computed $f(N)$ for $N\le60$ by two independent programs: a counterexample-guided CP-SAT search (master problem over subsets with cuts from certified violating relations; subproblem over $c\in\{-1,0,1\}^A$ with $\sum c_av(a)=0\ne\sum c_a$), and an exhaustive Rust search using $f(N)\in\{f(N-1),f(N-1)+1\}$ with an exact dynamic programme for violations. They agree for all $N\le60$. Selected values:
-\begin{center}
-\begin{tabular}{lcccccccccc}
-\toprule
-$N$ & 10 & 20 & 24 & 30 & 36 & 40 & 44 & 50 & 54 & 60\\
-$D(N)$ & 3 & 7 & 9 & 12 & 16 & 16 & 16 & 19 & 20 & 21\\
-$D_{\rm rep}(N)$ & 5 & 8 & 9 & 12 & 16 & 16 & 16 & 19 & 20 & 21\\
-\bottomrule
-\end{tabular}
-\end{center}
-For $4\le N\le21$ (except $N=14$) and $N=33$ one has $D(N)<D_{\rm rep}(N)$, while $D(N)=D_{\rm rep}(N)$ for $34\le N\le60$.
+Apply Lemma~\ref{lem:smooth} with $y=P$, $X=N$: at least $c_0N$ integers in $[N/2,N]$ are $P$-smooth; at most $NS$ are divisible by a heavy prime and at most $D$ lie in $E$, so some $a\in A\cap[N/2,N]$ has all its prime factors non-heavy and $\le P$. By Lemma~\ref{lem:words}, $a=q_1\cdots q_t$ with each $q_j$ rich (all rich ratios are $\ne1$ by definition) and $t\le16(\log P)\log a\le\frac12(\log N)^2$, so $M\ge2t$, and Lemma~\ref{lem:lift} shows that $A$ is not admissible. This proves Theorem~\ref{thm:main}. \qed
 
 \section{Formalization}\label{sec:lean}
-The Lean~4 development (Mathlib, and PrimeNumberTheoremAnd~\cite{PNT} for the explicit Mertens estimate replacing~\cite{RS62}) proves
+The Lean~4 development~\cite{repo} (Lean \texttt{v4.33.1}, Mathlib commit \texttt{0df444a}) depends only on Mathlib; the explicit Mertens estimates
+$\sum_{p\le x}\frac{\log p}{p}=\log x+O(1)$ and $\sum_{p\le x}\frac1p=\log\log x+M+O(1/\log x)$, with explicit error terms, are vendored from PrimeNumberTheoremAnd~\cite{PNT} and replace~\cite{RS62}. It proves:
 \begin{itemize}
-\item a counting version of Steps 1--7 with unspecified absolute constants: there is $\eta>0$ such that for all large $N$ every $A\subseteq\{1,\dots,N\}$ with $\abs A\ge(1-\eta)N$ contains distinct $a_1,\dots,a_r,b_1,\dots,b_s$ with $r\ne s$ and $\prod a_i=\prod b_j$;
-\item \texttt{erdos\_786.parts.ii} and \texttt{erdos\_786.parts.i} of~\cite{FC}, with the answers resolved to \texttt{False}; the statements and the definitions they use are copied verbatim.
+\item \texttt{Erdos786.main}: there is $\eta>0$ such that for all large $N$ every $A\subseteq\{1,\dots,N\}$ with $\abs A\ge(1-\eta)N$ contains distinct $a_1,\dots,a_r,b_1,\dots,b_s$ with $r\ne s$ and $\prod a_i=\prod b_j$. The proof follows Section~\ref{sec:main} with unspecified constants: Lemma~\ref{lem:lift} and a greedy version of Lemma~\ref{lem:paths} (matching of size $\ge R/3$), Step~1 (\texttt{heavy\_recip\_sum\_le}), Step~2 (\texttt{smooth\_count}), Step~3 (\texttt{qPart\_tail}), Step~5 in counting form (\texttt{core\_pairs}), Step~6 (\texttt{short\_word}) and the assembly (\texttt{main\_of}).
+\item \texttt{erdos\_786.parts.ii} and \texttt{erdos\_786.parts.i} of~\cite{FC}, in the form \texttt{False} $\leftrightarrow$ (statement), where the statements and all definitions they use (\texttt{Set.IsMulCardSet}, \texttt{Set.HasDensity}, \texttt{Set.partialDensity}) are copied verbatim. Part~(i) is deduced from \texttt{main} as explained after Theorem~\ref{thm:main}.
 \end{itemize}
-The repository is available at \url{https://github.com/daizisheng/erdos-786}. \texttt{\#print axioms} reports only \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}.
+\texttt{\#print axioms} reports only \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}. Theorem~\ref{thm:log} is not formalized.
 
 \section*{Acknowledgements}
 The arguments of Sections 3 and 4 were developed with substantial assistance from AI systems: the proofs were generated by OpenAI's GPT-6 (Astra) in response to a sequence of narrowly posed questions, each step was checked by independent adversarial reviews by a separate model (GPT-5.6 Sol) and numerically tested where possible, and the orchestration, computations, Lean formalization and write-up were carried out with Anthropic's Claude. The author takes full responsibility for the content. We thank T.~Tao for the discussion on the problem page~\cite{EP}, which suggested the logarithmic model problem.
@@ -218,9 +206,10 @@ The arguments of Sections 3 and 4 were developed with substantial assistance fro
 \bibitem{ERS73} P.~Erd\H{o}s, I.~Z.~Ruzsa, A.~S\'ark\"ozy, On the number of solutions of $f(n)=a$ for additive functions, \emph{Acta Arith.} \textbf{24} (1973), 1--9.
 \bibitem{FC} Google DeepMind, \emph{Formal Conjectures}, \texttt{FormalConjectures/ErdosProblems/786.lean}, \url{https://github.com/google-deepmind/formal-conjectures}.
 \bibitem{Ford08} K.~Ford, The distribution of integers with a divisor in a given interval, \emph{Ann. of Math.} \textbf{168} (2008), 367--433.
-\bibitem{Gessel} D.~Gessel, proof claim for Problem \#786 (part (i)), erdosproblems.com forum, 6 September 2026.
+\bibitem{Gessel} D.~Gessel, proof claim for Problem \#786 (part (i)), erdosproblems.com forum, 6 September 2026; manuscript \url{https://gist.github.com/declangessel/f807fd0a11bea766cd1d2e7ae717b7a3}.
 \bibitem{GS01} A.~Granville, K.~Soundararajan, The spectrum of multiplicative functions, \emph{Ann. of Math.} \textbf{153} (2001), 407--470.
 \bibitem{PNT} A.~Kontorovich, T.~Tao et al., \emph{PrimeNumberTheoremAnd}, \url{https://github.com/AlexKontorovich/PrimeNumberTheoremAnd}.
+\bibitem{repo} Lean formalization accompanying this paper, \url{https://github.com/daizisheng/erdos-786}.
 \bibitem{RS62} J.~B.~Rosser, L.~Schoenfeld, Approximate formulas for some functions of prime numbers, \emph{Illinois J. Math.} \textbf{6} (1962), 64--94.
 \end{thebibliography}
 
