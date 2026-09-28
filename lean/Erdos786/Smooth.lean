@@ -1,5 +1,5 @@
 import Erdos786.Defs
-import PrimeNumberTheoremAnd.IEANTN.Mertens
+import Erdos786.Vendor.Mertens
 
 /-! # Step 2: an explicit positive proportion of smooth numbers in `[X/2, X]`
 

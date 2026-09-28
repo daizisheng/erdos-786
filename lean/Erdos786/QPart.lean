@@ -1,5 +1,5 @@
 import Erdos786.Defs
-import PrimeNumberTheoremAnd.IEANTN.Mertens
+import Erdos786.Vendor.Mertens
 
 /-! # Step 3: the `Q`-part of a random integer is usually small (Chebyshev + Markov) -/
 
